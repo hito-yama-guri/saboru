@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace saboru
             InitializeComponent();
 
             currentDate = DateTime.Now.Date;
-            dateText.Text = currentDate.ToString("yyyy/MM/dd");
+            applyDate( 0 );
 
             prevButton.Clicked += prevButton_Clicked;
             nextButton.Clicked += nextButton_Clicked;
@@ -42,19 +43,30 @@ namespace saboru
             currentDate = currentDate.AddDays( diff );
             dateText.Text = currentDate.ToString( "yyyy/MM/dd" );
 
-            bool result = false;
-            foreach( DateTime date in primeDate ) {
-                if( date == currentDate ) {
-                    result = true;
-                    break;
-                }
-            }
+            DateTime start = DateTime.Now;
+            bool result = checkPrime(int.Parse(currentDate.ToString("yyyyMMdd")));
+            Debug.WriteLine( "time : {0}, result : {1}", DateTime.Now.Subtract( start ).ToString(), result == true ? "true" : "false" );
 
             if( result == true ) {
                 resultText.Text = "素数な日です！\nサボりましょう！";
             } else {
                 resultText.Text = "素数な日ではありません...。\n社畜しましょう。";
             }
+        }
+
+        private bool checkPrime( int date )
+        {
+            if( date % 2 == 0 ) {
+                return false;
+            }
+
+            for( int n = 3; n < (int)Math.Ceiling( Math.Sqrt( date ) ); n += 2 ) {
+                if( date % n == 0 ) {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
