@@ -27,7 +27,7 @@
         <ColumnDefinition Width="Auto"/>
       </Grid.ColumnDefinitions>
       <Button x:Name="prevButton" Text="&lt;" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
-      <Label x:Name="dateText" Text="16/06/19" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center"/>
+      <Label x:Name="dateText" Text="16/06/19" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Large"/>
       <Button x:Name="nextButton" Text="&gt;" Grid.Row="0" Grid.Column="2" VerticalOptions="Center"/>
     </Grid>
     <Label x:Name="resultText" Text="{StaticResource ResultOK}" HorizontalOptions="Center" FontSize="Large"/>
