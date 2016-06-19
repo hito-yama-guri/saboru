@@ -10,14 +10,14 @@ namespace saboru
 {
     public partial class MainPage : ContentPage
     {
-        DateTime date;
+        DateTime currentDate;
 
         public MainPage()
         {
             InitializeComponent();
 
-            date = DateTime.Now;
-            dateText.Text = date.ToString("yyyy/MM/dd");
+            currentDate = DateTime.Now.Date;
+            dateText.Text = currentDate.ToString("yyyy/MM/dd");
 
             prevButton.Clicked += prevButton_Clicked;
             nextButton.Clicked += nextButton_Clicked;
@@ -35,8 +35,8 @@ namespace saboru
 
         private void applyDate( int diff )
         {
-            date = date.AddDays( diff );
-            dateText.Text = date.ToString( "yyyy/MM/dd" );
+            currentDate = currentDate.AddDays( diff );
+            dateText.Text = currentDate.ToString( "yyyy/MM/dd" );
         }
     }
 }
