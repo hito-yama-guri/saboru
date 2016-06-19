@@ -56,10 +56,5 @@ namespace saboru
                 resultText.Text = "素数な日ではありません...。\n社畜しましょう。";
             }
         }
-
-        private void applyText()
-        {
-
-        }
     }
 }
